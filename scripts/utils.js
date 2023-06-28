@@ -29,6 +29,20 @@ export const [setLibs, getLibs] = (() => {
   ];
 })();
 
+export function initSidekick() {
+  const initPlugins = async () => {
+    const { default: init } = await import('./sidekick.js');
+    init();
+  };
+  if (document.querySelector('helix-sidekick')) {
+    initPlugins();
+  } else {
+    document.addEventListener('sidekick-ready', () => {
+      initPlugins();
+    });
+  }
+}
+
 /*
  * ------------------------------------------------------------
  * Edit above at your own risk.

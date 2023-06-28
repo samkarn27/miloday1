@@ -1,4 +1,4 @@
-mport { getLibs } from '../../scripts/utils.js';
+import { getLibs } from '../../scripts/utils.js';
 
 export default async function init(el) {
   const { createTag, getConfig } = await import(`${getLibs()}/utils/utils.js`);
